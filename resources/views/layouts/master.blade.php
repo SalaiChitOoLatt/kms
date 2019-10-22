@@ -132,11 +132,8 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
+                <a class="nav-link" href="{{ route('admin.logout') }}">
+                    {{ __('Logout') }}
                 </a>
               </li>
             </ul>
