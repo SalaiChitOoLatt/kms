@@ -34,7 +34,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active">
-            <a href="./dashboard.html">
+            <a href="{{ route('admin.dashboard')}}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -58,9 +58,9 @@
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="{{ route('admin.user-list') }}">
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>User List</p>
             </a>
           </li>
           <li>
