@@ -33,4 +33,11 @@ class AdminController extends Controller
         $users= User::all();
         return view('admin.userlist')->with('users', $users);
     }
+
+    
+    public function edituser(Request $request, $id)
+    {
+        $id = User::findOrFail($id);
+        return view('admin.user-edit');
+    }
 }

@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Users | KMS
+    Edit User | KMS
 @endsection
 
 @section('content')
@@ -33,26 +33,6 @@
               </th>
             </thead>
             <tbody>
-              @foreach ($users as $user)
-              <tr>
-                  <td>
-                    {{ $user->name }}
-                  </td>
-                  <td>
-                    {{ $user->phone }}
-                  </td>
-                  <td>
-                    {{ $user->email }}
-                  </td>
-                  <td>
-                    {{ $user->usertype }}
-                  </td>
-                  <td class="text-right">
-                  <a href="/admin/useredit/{{ $user->id }}" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
-                  </td>
-                </tr>
-              @endforeach
             </tbody>
           </table>
         </div>
