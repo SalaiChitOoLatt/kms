@@ -10,7 +10,7 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:admin')->only('userlists');
+        $this->middleware('guest:admin');
         
     }
 

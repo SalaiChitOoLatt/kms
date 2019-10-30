@@ -48,7 +48,7 @@
                     {{ $user->usertype }}
                   </td>
                   <td class="text-right">
-                  <a href="/admin/useredit/{{ $user->id }}" class="btn btn-primary">Edit</a>
+                  <a href="/useredit/{{ $user->id }}" class="btn btn-primary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                   </td>
                 </tr>
