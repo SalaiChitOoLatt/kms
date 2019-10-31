@@ -35,9 +35,19 @@ class AdminController extends Controller
     }
 
     
-    public function edituser(Request $request, $id)
+    public function useredit(Request $request, $id)
     {
-        $id = User::findOrFail($id);
-        return view('admin.user-edit');
+        $users = User::findOrFail($id);
+        return view('admin.user-edit')->with('users', $users);
+    }
+
+    public function userupdate(Request $request, $id)
+    {
+        $users = User::find($id);
+        $users->name = $request->input('name');
+        $users->usertype = $request->input('usertype');
+        $users->update();
+
+        return redirect('/users')->with('status', 'User has been updated successfully');
     }
 }

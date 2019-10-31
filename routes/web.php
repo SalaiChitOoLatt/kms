@@ -22,8 +22,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get( '/useredit/{id}', 'AdminController@edituser');
+Route::get( '/useredit/{id}', 'AdminController@useredit');
 // change route because admin route is no longer work with css. <admin/useredit/{id}>
+Route::put( '/userupdate/{id}', 'AdminController@userupdate');
+
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
