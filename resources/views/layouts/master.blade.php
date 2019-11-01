@@ -42,19 +42,25 @@
           <li>
             <a href="./icons.html">
               <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
+              <p>Contents</p>
             </a>
           </li>
           <li>
             <a href="./map.html">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+              <p>Categories</p>
             </a>
           </li>
           <li>
             <a href="./notifications.html">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+              <p>Role Creation</p>
+            </a>
+          </li>
+          <li>
+            <a href="./tables.html">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Permissions</p>
             </a>
           </li>
           <li>
@@ -64,18 +70,11 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
             <a href="./typography.html">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>Settings</p>
             </a>
           </li>
-
         </ul>
       </div>
     </div>

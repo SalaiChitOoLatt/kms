@@ -44,10 +44,19 @@ class AdminController extends Controller
     public function userupdate(Request $request, $id)
     {
         $users = User::find($id);
-        $users->name = $request->input('name');
+        $users->name = $request->input('username');
         $users->usertype = $request->input('usertype');
         $users->update();
 
-        return redirect('/users')->with('status', 'User has been updated successfully');
+        return redirect('/admin/users')->with('status', 'User has been updated successfully.');
+    }
+
+    public function userdelete($id)
+    {
+        $users = User::findOrFail($id);
+        $users->delete();
+
+        return redirect('/admin/users')->with('status', 'User has been deleted successfully.');
+
     }
 }
