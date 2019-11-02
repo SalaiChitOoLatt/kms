@@ -33,8 +33,8 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active">
-            <a href="{{ route('admin.dashboard')}}">
+        <li class="{{ 'admin' == request()->path()? 'active': '' }}">
+            <a href="/admin">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -63,8 +63,8 @@
               <p>Permissions</p>
             </a>
           </li>
-          <li>
-            <a href="{{ route('admin.user-list') }}">
+          <li class="{{ 'admin/users' == request()->path()? 'active': '' }}">
+            <a href="/admin/users">
               <i class="now-ui-icons users_single-02"></i>
               <p>User List</p>
             </a>
