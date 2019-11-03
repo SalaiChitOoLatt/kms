@@ -22,6 +22,17 @@ USER LIST
                 @endif
             </div>
             <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <a href="#" class="btn btn-info float-lg-left">Download as CSV</a>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <a href="#" class="btn btn-success float-lg-right">Create New User</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
@@ -63,7 +74,8 @@ USER LIST
                                     <form action="/useredit/{{ $user->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
-                                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                        <button class="btn btn-danger"
+                                            onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>

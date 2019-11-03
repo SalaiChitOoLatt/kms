@@ -14,7 +14,7 @@ About Us
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3>Resources</h3>
+                    <h4>Resources</h4>
                 </div>
                 <div class="card-body">
                     <ul>
