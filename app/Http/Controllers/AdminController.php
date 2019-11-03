@@ -60,6 +60,10 @@ class AdminController extends Controller
 
     }
 
+    public function showUserCreateForm()
+    {
+        return view('admin.create-user');
+    }
     public function about()
     {
         return view('admin.about');

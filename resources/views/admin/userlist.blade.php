@@ -28,7 +28,7 @@ USER LIST
                             <a href="#" class="btn btn-info float-lg-left">Download as CSV</a>
                         </div>
                         <div class="col-md-6 col-xs-12">
-                            <a href="#" class="btn btn-success float-lg-right">Create New User</a>
+                            <a href="/admin/createuser" class="btn btn-success float-lg-right">Create New User</a>
                         </div>
                     </div>
                 </div>

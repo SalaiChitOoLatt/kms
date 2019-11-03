@@ -16,8 +16,7 @@
   <!-- CSS Files -->
   <link href="../css/app.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body class="">
@@ -71,13 +70,13 @@
           </li>
           <li>
             <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
+              <i class="now-ui-icons ui-1_settings-gear-63"></i>
               <p>Settings</p>
             </a>
           </li>
-          <li>
+          <li class="{{ 'admin/about' == request()->path()? 'active': '' }}">
             <a href="/admin/about">
-              <i class="now-ui-icons text_caps-small"></i>
+              <i class="now-ui-icons travel_info"></i>
               <p>About Us</p>
             </a>
           </li>
