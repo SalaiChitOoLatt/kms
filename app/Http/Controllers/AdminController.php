@@ -59,4 +59,9 @@ class AdminController extends Controller
         return redirect('/admin/users')->with('status', 'User has been deleted successfully.');
 
     }
+
+    public function about()
+    {
+        return view('admin.about');
+    }
 }

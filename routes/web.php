@@ -30,7 +30,7 @@ Route::delete('/useredit/{id}', 'AdminController@userdelete');
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get( '/users', 'AdminController@userlists' )->name( 'admin.user-list' );
-    
+    Route::get('/about', 'AdminController@about');
     //Route::get( '/useredit/{id}', 'AdminController@edituser');
 
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

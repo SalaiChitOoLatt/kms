@@ -75,6 +75,12 @@
               <p>Settings</p>
             </a>
           </li>
+          <li>
+            <a href="/admin/about">
+              <i class="now-ui-icons text_caps-small"></i>
+              <p>About Us</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
