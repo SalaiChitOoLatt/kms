@@ -18,7 +18,7 @@ Create New User
                     <h4>Create User</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                <form method="POST" action="{{ route('admin.user-create') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -34,8 +34,8 @@ Create New User
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control"
-                                    name="phone" value="" required autocomplete="phone" autofocus>
+                                <input id="phone" type="text" class="form-control" name="phone" value="" required
+                                    autocomplete="phone" autofocus>
                             </div>
                         </div>
 
@@ -50,13 +50,25 @@ Create New User
                         </div>
 
                         <div class="form-group row">
+                            <label for="usertype" class="col-md-4 col-form-label text-md-right">User Type</label>
+                            <div class="col-md-6">
+                                <select name="usertype" class="form-control" id="usertype">
+                                    <option value="Normal User">Normal User</option>
+                                    <option value="Accountant">Accountant</option>
+                                    <option value="System Administrator">SysAdmin</option>
+                                    <option value="HR Manager">HR Manager</option>
+                                    <option value="BD Manager">Business Development Manager</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control" name="password"
-                                    required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control" name="password" required
+                                    autocomplete="new-password">
                             </div>
                         </div>
 
@@ -73,7 +85,7 @@ Create New User
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Create 
+                                    Create
                                 </button>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class AdminController extends Controller
@@ -64,6 +65,33 @@ class AdminController extends Controller
     {
         return view('admin.create-user');
     }
+
+    public function createUser(Request $request)
+    {
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:12', 'min:9'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user= User::insert([
+
+            'name' => $request->input('name'),
+
+            'phone' => $request->input('phone'),
+
+            'email' => $request->input('email'),
+            
+            'usertype' => $request->input('usertype'),
+
+            'password' => Hash::make($request->input('password')),
+            
+            
+            ]);
+        return redirect('/admin/users')->with('status', 'A New User has been created successfully.');
+    }
+
     public function about()
     {
         return view('admin.about');

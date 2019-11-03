@@ -16,7 +16,7 @@ USER LIST
             <div class="card-header">
                 <h4 class="card-title">Users</h4>
                 @if (session('status'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-info" role="alert">
                     {{ session('status') }}
                 </div>
                 @endif

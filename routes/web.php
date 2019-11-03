@@ -31,6 +31,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get( '/users', 'AdminController@userlists' )->name( 'admin.user-list' );
     Route::get('/createuser', 'AdminController@showUserCreateForm');
+    Route::post('/createuser', 'AdminController@createUser')->name('admin.user-create');
     Route::get('/about', 'AdminController@about');
     //Route::get( '/useredit/{id}', 'AdminController@edituser');
 

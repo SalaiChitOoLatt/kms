@@ -6,7 +6,7 @@ Users | KMS
 @endsection
 
 @section('pagename')
-Create New User
+Create Role
 @endsection
 
 @section('content')
