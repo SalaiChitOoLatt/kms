@@ -50,8 +50,8 @@
               <p>Categories</p>
             </a>
           </li>
-          <li>
-            <a href="./notifications.html">
+          <li class="{{ 'admin/roleregister' == request()->path()? 'active': '' }}">
+            <a href="/admin/roleregister">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Role Creation</p>
             </a>

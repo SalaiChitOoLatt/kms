@@ -28,12 +28,17 @@ Route::put( '/userupdate/{id}', 'AdminController@userupdate');
 Route::delete('/useredit/{id}', 'AdminController@userdelete');
 
 Route::prefix('admin')->group(function() {
+
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+
     Route::get( '/users', 'AdminController@userlists' )->name( 'admin.user-list' );
     Route::get('/createuser', 'AdminController@showUserCreateForm');
     Route::post('/createuser', 'AdminController@createUser')->name('admin.user-create');
+    
     Route::get('/about', 'AdminController@about');
     //Route::get( '/useredit/{id}', 'AdminController@edituser');
+
+    Route::get('/roleregister', 'AdminController@showRoleCreateForm')->name('admin.role-create');
 
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
