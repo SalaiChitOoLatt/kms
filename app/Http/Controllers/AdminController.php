@@ -99,6 +99,7 @@ class AdminController extends Controller
 
     public function showRoleCreateForm()
     {
-        return view('admin.register-role');
+        return view('admin.role.register-role');
     }
+    
 }
