@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Category;
 
 class AdminController extends Controller
 {
@@ -100,6 +101,34 @@ class AdminController extends Controller
     public function showRoleCreateForm()
     {
         return view('admin.role.register-role');
+    }
+
+    public function categoryList()
+    {
+        $categories= Category::all();
+        return view('admin.category.index')->with('categories', $categories);
+    }
+
+    public function categoryCreate()
+    {
+        return view('admin.category.create');
+    }
+
+    public function categorystore(Request $request)
+    {
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:12', 'min:9'],
+        ]);
+
+        $category = Category::insert([
+
+            'category_name' => $request->input('category_name'),
+
+            'description' => $request->input('description'),
+            
+            ]);
+        return redirect('admin/category')->with('status', 'A New category has been created successfully.');
     }
     
 }

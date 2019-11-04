@@ -27,6 +27,9 @@ Route::get( '/useredit/{id}', 'AdminController@useredit');
 Route::put( '/userupdate/{id}', 'AdminController@userupdate');
 Route::delete('/useredit/{id}', 'AdminController@userdelete');
 
+Route::get('/category/create', 'AdminController@categoryCreate');
+Route::post('/category/create', 'AdminController@categorystore')->name('admin.category-create');
+
 Route::prefix('admin')->group(function() {
 
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
@@ -39,6 +42,10 @@ Route::prefix('admin')->group(function() {
     //Route::get( '/useredit/{id}', 'AdminController@edituser');
 
     Route::get('/roleregister', 'AdminController@showRoleCreateForm')->name('admin.role-create');
+
+
+    Route::get('/category', 'AdminController@categoryList');
+    
 
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');

@@ -1144,14 +1144,9 @@ textarea.form-control {
   max-height: 80px;
   padding: 10px 10px 0 0;
   resize: none;
-  border: none;
-  border-bottom: 1px solid #E3E3E3;
+  border: 1px solid #444;
   border-radius: 0;
   line-height: 2; }
-  textarea.form-control:focus, textarea.form-control:active {
-    border-left: none;
-    border-top: none;
-    border-right: none; }
 
 .has-success.form-group .form-control,
 .has-success.form-group.no-border .form-control,
