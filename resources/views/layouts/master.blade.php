@@ -45,7 +45,7 @@
             </a>
           </li>
           <li>
-            <a href="/admin/category">
+            <a href="/category">
               <i class="now-ui-icons location_map-big"></i>
               <p>Categories</p>
             </a>

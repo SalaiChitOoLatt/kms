@@ -60,10 +60,10 @@ Categories
                                     </p>
                                 </td>
                                 <td class="text-right">
-                                    <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="/edit/{{ $category->id }}" class="btn btn-primary">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="#" method="post">
+                                    <form action="/delete/{{ $category->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-danger"

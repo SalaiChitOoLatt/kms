@@ -27,8 +27,18 @@ Route::get( '/useredit/{id}', 'AdminController@useredit');
 Route::put( '/userupdate/{id}', 'AdminController@userupdate');
 Route::delete('/useredit/{id}', 'AdminController@userdelete');
 
-Route::get('/category/create', 'AdminController@categoryCreate');
-Route::post('/category/create', 'AdminController@categorystore')->name('admin.category-create');
+Route::get('/edit/{category_id}', 'CategoryController@edit');
+Route::put( '/edit/{category_id}', 'CategoryController@update');
+Route::delete('/delete/{id}', 'CategoryController@destroy');
+
+Route::prefix('category')->group(function() {
+
+    Route::get('/', 'CategoryController@index');
+    Route::get('/create', 'CategoryController@create');
+    Route::post('/create', 'CategoryController@store')->name('admin.category-create');
+
+});
+
 
 Route::prefix('admin')->group(function() {
 
@@ -42,9 +52,6 @@ Route::prefix('admin')->group(function() {
     //Route::get( '/useredit/{id}', 'AdminController@edituser');
 
     Route::get('/roleregister', 'AdminController@showRoleCreateForm')->name('admin.role-create');
-
-
-    Route::get('/category', 'AdminController@categoryList');
     
 
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

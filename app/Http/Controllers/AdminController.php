@@ -116,6 +116,7 @@ class AdminController extends Controller
 
     public function categorystore(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:12', 'min:9'],
