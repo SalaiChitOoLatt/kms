@@ -51,7 +51,7 @@
             </a>
           </li>
           <li class="{{ 'admin/roleregister' == request()->path()? 'active': '' }}">
-            <a href="/admin/roleregister">
+            <a href="/role">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Role Creation</p>
             </a>

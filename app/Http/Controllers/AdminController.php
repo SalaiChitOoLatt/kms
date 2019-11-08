@@ -100,36 +100,16 @@ class AdminController extends Controller
 
     public function showRoleCreateForm()
     {
-        return view('admin.role.register-role');
+        return view('admin.role.create');
     }
 
-    public function categoryList()
+    public function downloadcsv()
     {
-        $categories= Category::all();
-        return view('admin.category.index')->with('categories', $categories);
+        $users = User::get(); // All users
+        $csvExporter = new \Laracsv\Export();
+        $csvExporter->build($users, ['name', 'phone', 'usertype', 'email'])->download('user list.csv');
     }
 
-    public function categoryCreate()
-    {
-        return view('admin.category.create');
-    }
 
-    public function categorystore(Request $request)
-    {
-        // dd($request);
-        $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:12', 'min:9'],
-        ]);
-
-        $category = Category::insert([
-
-            'category_name' => $request->input('category_name'),
-
-            'description' => $request->input('description'),
-            
-            ]);
-        return redirect('admin/category')->with('status', 'A New category has been created successfully.');
-    }
     
 }

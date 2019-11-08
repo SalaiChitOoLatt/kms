@@ -25,7 +25,7 @@ Categories
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
-                            <a href="#" class="btn btn-info float-lg-left">Download as CSV</a>
+                            <a href="/category/downloadcsv" class="btn btn-info float-lg-left">Download as CSV</a>
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <a href="/category/create" class="btn btn-success float-lg-right">

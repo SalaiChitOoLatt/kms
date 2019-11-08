@@ -70,5 +70,12 @@ class CategoryController extends Controller
 
         return redirect('/category')->with('status', 'Category has been deleted successfully.');
     }
+
+    public function downloadcsv()
+    {
+        $categories = Category::get(); // All users
+        $csvExporter = new \Laracsv\Export();
+        $csvExporter->build($categories, ['category_name', 'description'])->download('category list.csv');
+    }
     
 }

@@ -31,14 +31,26 @@ Route::get('/edit/{category_id}', 'CategoryController@edit');
 Route::put( '/edit/{category_id}', 'CategoryController@update');
 Route::delete('/delete/{id}', 'CategoryController@destroy');
 
+Route::get('/roleedit/{role_id}', 'RoleController@edit');
+Route::put( '/roleedit/{role_id}', 'RoleController@update');
+Route::delete('/roledelete/{id}', 'RoleController@destroy');
+
 Route::prefix('category')->group(function() {
 
     Route::get('/', 'CategoryController@index');
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store')->name('admin.category-create');
+    Route::get('/downloadcsv', 'CategoryController@downloadcsv');
 
 });
 
+
+Route::prefix('role')->group(function() {
+    Route::get('/', 'RoleController@index');
+    Route::get('/create', 'RoleController@create');
+    Route::post('/create', 'RoleController@store')->name('admin.role-create');
+    Route::get('/downloadcsv', 'RoleController@downloadcsv');
+});
 
 Route::prefix('admin')->group(function() {
 
@@ -49,11 +61,9 @@ Route::prefix('admin')->group(function() {
     Route::post('/createuser', 'AdminController@createUser')->name('admin.user-create');
     
     Route::get('/about', 'AdminController@about');
-    //Route::get( '/useredit/{id}', 'AdminController@edituser');
+    //Route::get( '/useredit/{id}', 'AdminController@edituser');    
 
-    Route::get('/roleregister', 'AdminController@showRoleCreateForm')->name('admin.role-create');
-    
-
+    Route::get('/downloadcsv', 'AdminController@downloadcsv');
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     

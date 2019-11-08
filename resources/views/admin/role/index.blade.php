@@ -2,11 +2,11 @@
 
 
 @section('title')
-Users | KMS
+Category | KMS
 @endsection
 
 @section('pagename')
-USER LIST
+Categories
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@ USER LIST
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Users</h4>
+                <h4 class="card-title">Role List</h4>
                 @if (session('status'))
                 <div class="alert alert-info" role="alert">
                     {{ session('status') }}
@@ -25,10 +25,12 @@ USER LIST
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
-                            <a href="/admin/downloadcsv" class="btn btn-info float-lg-left">Download as CSV</a>
+                            <a href="/role/downloadcsv" class="btn btn-info float-lg-left">Download as CSV</a>
                         </div>
                         <div class="col-md-6 col-xs-12">
-                            <a href="/admin/createuser" class="btn btn-success float-lg-right">Create New User</a>
+                            <a href="/role/create" class="btn btn-success float-lg-right">
+                                Create New Category
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -37,41 +39,31 @@ USER LIST
                     <table class="table">
                         <thead class=" text-primary">
                             <th>
-                                Name
+                                Role Name
                             </th>
                             <th>
-                                Phone
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                            <th>
-                                User Type
+                                Description
                             </th>
                             <th colspan="2">
                                 Action
                             </th>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($roles as $role)
                             <tr>
                                 <td>
-                                    {{ $user->name }}
+                                    {{ $role->role_name}}
                                 </td>
                                 <td>
-                                    {{ $user->phone }}
-                                </td>
-                                <td>
-                                    {{ $user->email }}
-                                </td>
-                                <td>
-                                    {{ $user->usertype }}
+                                    <p class="text-justify w-70 px-3">
+                                        {{ $role->description }}
+                                    </p>
                                 </td>
                                 <td class="text-right">
-                                    <a href="/useredit/{{ $user->id }}" class="btn btn-primary">Edit</a>
+                                <a href="roleedit/{{ $role->id }}" class="btn btn-primary">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="/useredit/{{ $user->id }}" method="post">
+                                    <form action="roledelete/{{ $role->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-danger"
