@@ -29,15 +29,15 @@ Categories
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <a href="/role/create" class="btn btn-success float-lg-right">
-                                Create New Category
+                                Create New Role
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table">
-                        <thead class=" text-primary">
+                    <table class="table table-hover">
+                        <thead class="text-center text-primary thead-light">
                             <th>
                                 Role Name
                             </th>

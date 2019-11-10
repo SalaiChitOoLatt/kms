@@ -26,4 +26,9 @@ class Category extends Model
     // protected $hidden = [
     //     'remember_token',
     // ];
+
+    public function contents()
+    {
+        return $this->hasMany('App\Content');
+    }
 }

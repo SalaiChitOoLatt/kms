@@ -36,8 +36,8 @@ Categories
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table">
-                        <thead class=" text-primary">
+                    <table class="table table-hover">
+                        <thead class="text-center text-primary thead-light">
                             <th>
                                 Category Name
                             </th>

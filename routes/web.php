@@ -15,10 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
 Route::get('/admin', function () {
     return view('admin.dashboard');
 });
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -35,12 +38,25 @@ Route::get('/roleedit/{role_id}', 'RoleController@edit');
 Route::put( '/roleedit/{role_id}', 'RoleController@update');
 Route::delete('/roledelete/{id}', 'RoleController@destroy');
 
+Route::get('/content/{content_id}', 'ContentController@edit');
+Route::put( '/contentedit/{content_id}', 'ContentController@update');
+Route::delete('/contentdelete/{id}', 'ContentController@destroy');
+
 Route::prefix('category')->group(function() {
 
     Route::get('/', 'CategoryController@index');
     Route::get('/create', 'CategoryController@create');
     Route::post('/create', 'CategoryController@store')->name('admin.category-create');
     Route::get('/downloadcsv', 'CategoryController@downloadcsv');
+
+});
+
+Route::prefix('content')->group(function() {
+
+    Route::get('/', 'ContentController@index');
+    Route::get('/create', 'ContentController@create');
+    Route::post('/create', 'ContentController@store')->name('admin.content-create');
+    Route::get('/downloadcsv', 'ContentController@downloadcsv');
 
 });
 
