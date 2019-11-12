@@ -74,12 +74,6 @@
               <p>Settings</p>
             </a>
           </li>
-          <li class="{{ 'admin/about' == request()->path()? 'active': '' }}">
-            <a href="/admin/about">
-              <i class="now-ui-icons travel_info"></i>
-              <p>About Us</p>
-            </a>
-          </li>
         </ul>
       </div>
     </div>

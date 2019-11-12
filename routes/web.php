@@ -76,7 +76,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/createuser', 'AdminController@showUserCreateForm');
     Route::post('/createuser', 'AdminController@createUser')->name('admin.user-create');
     
-    Route::get('/about', 'AdminController@about');
     //Route::get( '/useredit/{id}', 'AdminController@edituser');    
 
     Route::get('/downloadcsv', 'AdminController@downloadcsv');

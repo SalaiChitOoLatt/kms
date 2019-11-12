@@ -93,11 +93,6 @@ class AdminController extends Controller
         return redirect('/admin/users')->with('status', 'A New User has been created successfully.');
     }
 
-    public function about()
-    {
-        return view('admin.about');
-    }
-
     public function showRoleCreateForm()
     {
         return view('admin.role.create');
