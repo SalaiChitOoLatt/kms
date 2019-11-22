@@ -13,15 +13,16 @@ class ContentController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth:admin');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth:web,admin');
+    }
 
     public function index()
     {
-        $contents= Content::all();
-        return view('admin.content.index')->with('contents', $contents);
+        // $contents= Content::all();
+        // return view('admin.content.index')->with('contents', $contents);
+        return view('admin.content.index');
     }
 
     public function create()

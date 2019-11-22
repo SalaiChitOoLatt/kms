@@ -38,13 +38,13 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="./icons.html">
+          <li class="{{ '/content' == request()->path()? 'active': '' }}">
+            <a href="/content">
               <i class="now-ui-icons education_atom"></i>
               <p>Contents</p>
             </a>
           </li>
-          <li>
+          <li class="{{ '/category' == request()->path()? 'active': '' }}">
             <a href="/category">
               <i class="now-ui-icons location_map-big"></i>
               <p>Categories</p>
