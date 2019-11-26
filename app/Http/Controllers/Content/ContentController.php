@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Content;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,18 +15,18 @@ class ContentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth');
     }
 
     public function index()
     {
         // $contents= Content::all();
         // return view('admin.content.index')->with('contents', $contents);
-        return view('admin.content.index');
+        return view('content.index');
     }
 
     
-    public function downloadcsv()
+    public function contentdownload()
     {
         $contents = Content::get(); // All users
         $csvExporter = new \Laracsv\Export();
