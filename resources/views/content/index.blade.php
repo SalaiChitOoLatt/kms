@@ -12,9 +12,24 @@ Contents
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card mx-2">
             <div class="card-header">
-                <h4 class="card-title">Content List</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <h4 class="card-title">Content List</h4>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <a href="/usercontent/create" class="btn btn-success float-lg-right mx-2">
+                                Create New Content
+                            </a>
+                            <a href="/usercontent/downloadcsv" class="btn btn-info float-lg-right mx-2">
+                                Download as CSV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 @if (session('status'))
                 <div class="alert alert-info" role="alert">
                     {{ session('status') }}
@@ -24,52 +39,101 @@ Contents
             <div class="card-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-xs-12">
-                            <a href="/content/downloadcsv" class="btn btn-info float-lg-left">Download as CSV</a>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-center text-primary thead-light">
+                                    <th>
+                                        Content ID
+                                    </th>
+                                    <th>
+                                        Content Name
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Time
+                                    </th>
+                                    <th>
+                                        Created Date
+                                    </th>
+                                    <th>
+                                        Last Updated
+                                    </th>
+                                    <th colspan="2">
+                                        Action
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($contents as $content)
+                                    <tr>
+                                        <td>
+                                            {{ $content->id}}
+                                        </td>
+                                        <td>
+                                            {{ $content->content_name }}
+                                        </td>
+                                        <td>
+                                            {{ $content->description }}
+                                        </td>
+                                        <td>
+                                            {{ $content->date }}
+                                        </td>
+                                        <td>
+                                            {{ $content->time }}
+                                        </td>
+                                        <td>
+                                            {{ $content->created_at }}
+                                        </td>
+                                        <td>
+                                            {{ $content->updated_at }}
+                                        </td>
+                                        <td class="text-right">
+                                                <a href="/usercontentedit/{{ $content->id }}" class="btn btn-primary">Edit</a>
+                                            </td>
+                                            <td>
+                                            <form action="/usercontentdelete/{{ $content->id }}" method="post">
+                                                    @csrf
+                                                    {{ method_field('DELETE') }}
+                                                    <button class="btn btn-danger"
+                                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                                </form>
+                                            </td>
+                                    </tr>
+                                    @endforeach
+                                    {{-- @foreach ($roles as $role)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $role->role_name}}
+                                    </td>
+                                    <td>
+                                        <p class="text-justify w-70 px-3">
+                                            {{ $role->description }}
+                                        </p>
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="roleedit/{{ $role->id }}" class="btn btn-primary">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="roledelete/{{ $role->id }}" method="post">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button class="btn btn-danger"
+                                                onclick="return confirm('Are you sure?')">Delete</button>
+                                        </form>
+                                    </td>
+                                    </tr>
+                                    @endforeach --}}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="text-center text-primary thead-light">
-                            <th>
-                                Content Name
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th colspan="2">
-                                Action
-                            </th>
-                        </thead>
-                        <tbody>
-                            {{-- @foreach ($roles as $role)
-                            <tr>
-                                <td>
-                                    {{ $role->role_name}}
-                                </td>
-                                <td>
-                                    <p class="text-justify w-70 px-3">
-                                        {{ $role->description }}
-                                    </p>
-                                </td>
-                                <td class="text-right">
-                                <a href="roleedit/{{ $role->id }}" class="btn btn-primary">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="roledelete/{{ $role->id }}" method="post">
-                                        @csrf
-                                        {{ method_field('DELETE') }}
-                                        <button class="btn btn-danger"
-                                            onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach --}}
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

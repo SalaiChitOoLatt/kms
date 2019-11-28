@@ -38,9 +38,9 @@ Route::get('/roleedit/{role_id}', 'RoleController@edit');
 Route::put( '/roleedit/{role_id}', 'RoleController@update');
 Route::delete('/roledelete/{id}', 'RoleController@destroy');
 
-// Route::get('/content/{content_id}', 'ContentController@edit');
-// Route::put( '/contentedit/{content_id}', 'ContentController@update');
-// Route::delete('/contentdelete/{id}', 'ContentController@destroy');
+Route::get('/usercontentedit/{content_id}', 'Content\ContentController@edit');
+Route::put( '/usercontentedit/{content_id}', 'Content\ContentController@update');
+Route::delete('/usercontentdelete/{content_id}', 'Content\ContentController@destroy');
 
 Route::prefix('category')->group(function() {
 
@@ -63,8 +63,8 @@ Route::prefix('content')->group(function() {
 Route::prefix('usercontent')->group(function() {
 
     Route::get('/', 'Content\ContentController@index');
-    // Route::get('/create', 'ContentController@create');
-    // Route::post('/create', 'ContentController@store')->name('admin.content-create');
+    Route::get('/create', 'Content\ContentController@create');
+    Route::post('/create', 'Content\ContentController@store')->name('user.content-create');
     Route::get('/downloadcsv', 'Content\ContentController@contentdownload');
 
 });

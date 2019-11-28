@@ -18,12 +18,12 @@ Create Content
                     <h4>Create Content</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.content-create') }}">
+                    <form method="POST" action="{{ route('user.content-create') }}">
                         @csrf
 
                         <div class="form-group row">
                             <label for="content_name"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Role Name') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('Content Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="cotent_name" type="text"
@@ -42,22 +42,30 @@ Create Content
                         </div>
 
                         <!--Date picker -->
-                        <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                            <label class="control-label" for="datepicker">Select Date</label>
-                            <input type="text" class="form-control" id="datepicker">
+                        <div class="form-group row ">
+                            <label for="date" class="control-label col-md-4 col-form-label text-md-right"
+                                for="datepicker">Select Date</label>
+
+                            <div class="col-md-6">
+                                <input type="date" class="form-control" name="date" id="datepicker" required>
+                            </div>
                         </div>
 
                         <!--Time picker -->
-                        <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                            <label class="control-label" for="timepicker">Select Time</label>
-                            <input type="text" class="form-control" id="timepicker">
+                        <div class="form-group row pmd-textfield pmd-textfield-floating-label">
+                            <label class="control-label col-md-4 col-form-label text-md-right" for="timepicker">Select
+                                Time</label>
+                            <div class="col-md-6">
+                                <input type="time" name="time" class="form-control" id="timepicker" required>
+                            </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Create
+                                    Upload content
                                 </button>
+                                <a href="/usercontent" class="btn btn-danger">Cancel</a>
                             </div>
                         </div>
                     </form>
