@@ -88,7 +88,6 @@ class AdminController extends Controller
 
             'password' => Hash::make($request->input('password')),
             
-            
             ]);
         return redirect('/admin/users')->with('status', 'A New User has been created successfully.');
     }
@@ -102,7 +101,7 @@ class AdminController extends Controller
     {
         $users = User::get(); // All users
         $csvExporter = new \Laracsv\Export();
-        $csvExporter->build($users, ['name', 'phone', 'usertype', 'email'])->download('user list.csv');
+        $csvExporter->build($users, ['name' => 'Name', 'phone' => 'Phone Number', 'usertype' => 'User Type', 'email' => 'Email'])->download('user list.csv');
     }
 
 

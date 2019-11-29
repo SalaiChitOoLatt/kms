@@ -75,7 +75,7 @@ class CategoryController extends Controller
     {
         $categories = Category::get(); // All users
         $csvExporter = new \Laracsv\Export();
-        $csvExporter->build($categories, ['category_name', 'description'])->download('category list.csv');
+        $csvExporter->build($categories, ['category_name' => 'Category Name', 'description' => 'Description'])->download('category list.csv');
     }
     
 }

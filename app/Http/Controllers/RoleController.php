@@ -75,7 +75,7 @@ class RoleController extends Controller
     {
         $roles = Role::get(); // All users
         $csvExporter = new \Laracsv\Export();
-        $csvExporter->build($roles, ['role_name', 'description'])->download('role list.csv');
+        $csvExporter->build($roles, ['role_name' => 'Role Name', 'description' => 'Description'])->download('role list.csv');
     }
     
 }
