@@ -34,31 +34,56 @@ Contents
                     <table class="table table-hover">
                         <thead class="text-center text-primary thead-light">
                             <th>
+                                Content ID
+                            </th>
+                            <th>
                                 Content Name
                             </th>
                             <th>
                                 Description
                             </th>
-                            <th colspan="2">
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Last Updated
+                            </th>
+                            <th>
                                 Action
                             </th>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($roles as $role)
-                            <tr>
+                            @foreach ($contents as $content)
+                            <tr class="text-center">
                                 <td>
-                                    {{ $role->role_name}}
+                                    {{ $content->id}}
                                 </td>
                                 <td>
-                                    <p class="text-justify w-70 px-3">
-                                        {{ $role->description }}
-                                    </p>
-                                </td>
-                                <td class="text-right">
-                                <a href="roleedit/{{ $role->id }}" class="btn btn-primary">Edit</a>
+                                    {{ $content->content_name }}
                                 </td>
                                 <td>
-                                    <form action="roledelete/{{ $role->id }}" method="post">
+                                    {{ $content->description }}
+                                </td>
+                                <td>
+                                    {{ $content->date }}
+                                </td>
+                                <td>
+                                    {{ $content->time }}
+                                </td>
+                                <td>
+                                    {{ $content->created_at }}
+                                </td>
+                                <td>
+                                    {{ $content->updated_at }}
+                                </td>
+                                <td>
+                                    <form action="/content/delete/{{ $content->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-danger"
@@ -66,7 +91,7 @@ Contents
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

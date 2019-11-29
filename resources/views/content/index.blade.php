@@ -92,41 +92,19 @@ Contents
                                             {{ $content->updated_at }}
                                         </td>
                                         <td class="text-right">
-                                                <a href="/usercontentedit/{{ $content->id }}" class="btn btn-primary">Edit</a>
-                                            </td>
-                                            <td>
+                                            <a href="/usercontentedit/{{ $content->id }}"
+                                                class="btn btn-primary">Edit</a>
+                                        </td>
+                                        <td>
                                             <form action="/usercontentdelete/{{ $content->id }}" method="post">
-                                                    @csrf
-                                                    {{ method_field('DELETE') }}
-                                                    <button class="btn btn-danger"
-                                                        onclick="return confirm('Are you sure?')">Delete</button>
-                                                </form>
-                                            </td>
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-danger"
+                                                    onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
-                                    {{-- @foreach ($roles as $role)
-                                                    <tr>
-                                                        <td>
-                                                            {{ $role->role_name}}
-                                    </td>
-                                    <td>
-                                        <p class="text-justify w-70 px-3">
-                                            {{ $role->description }}
-                                        </p>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="roleedit/{{ $role->id }}" class="btn btn-primary">Edit</a>
-                                    </td>
-                                    <td>
-                                        <form action="roledelete/{{ $role->id }}" method="post">
-                                            @csrf
-                                            {{ method_field('DELETE') }}
-                                            <button class="btn btn-danger"
-                                                onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
-                                    </td>
-                                    </tr>
-                                    @endforeach --}}
                                 </tbody>
                             </table>
                         </div>

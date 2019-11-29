@@ -81,7 +81,8 @@ class ContentController extends Controller
     {
         $contents = Content::get(); // All contents
         $csvExporter = new \Laracsv\Export();
-        $csvExporter->build($contents, ['content_name', 'description','date', 'time', 'created_at', 'updated_at'])->download('content list.csv');
+        $csvExporter->build($contents, ['content_name' => 'Content Name', 'description' => 'Description','date' => 'Date',
+         'time' => 'Time', 'created_at' => 'Created Date', 'updated_at' => 'Last Updated'])->download('content list.csv');
     }    
     
 }

@@ -54,8 +54,7 @@ Route::prefix('category')->group(function() {
 Route::prefix('content')->group(function() {
 
     Route::get('/', 'ContentController@index');
-    Route::get('/create', 'ContentController@create');
-    Route::post('/create', 'ContentController@store')->name('admin.content-create');
+    Route::delete('/delete/{content_id}', 'ContentController@destroy');
     Route::get('/downloadcsv', 'ContentController@downloadcsv');
 
 });
@@ -97,3 +96,5 @@ Route::prefix('admin')->group(function() {
 Route::get('/userchangepassword', function(){
     return view('user.changepassword');
 });
+
+Route::post('/userchangepassword', 'HomeController@changePassword')->name('changePassword');
