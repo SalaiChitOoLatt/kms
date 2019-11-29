@@ -84,14 +84,10 @@ Route::prefix('admin')->group(function() {
     Route::get('/createuser', 'AdminController@showUserCreateForm');
     Route::post('/createuser', 'AdminController@createUser')->name('admin.user-create');
     
-    //Route::get( '/useredit/{id}', 'AdminController@edituser');    
-
     Route::get('/downloadcsv', 'AdminController@downloadcsv');
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    
-    // Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
-    
+        
 });
 
 Route::get('/userchangepassword', function(){

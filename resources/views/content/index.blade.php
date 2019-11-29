@@ -79,19 +79,19 @@ Contents
                                         <td>
                                             {{ $content->time }}
                                         </td>
-                                        <td class="text-right">
+                                        <td>
                                             <a href="/usercontentedit/{{ $content->id }}"
-                                                class="btn btn-primary">Edit</a>
+                                                class="btn btn-block btn-primary">Edit</a>
                                         </td>
-                                        <td class="text-right">
+                                        <td>
                                             <a href="/usercontentdetails/{{ $content->id }}"
-                                                class="btn btn-info">Details</a>
+                                                class="btn btn-block btn-info">Details</a>
                                         </td>
                                         <td>
                                             <form action="/usercontentdelete/{{ $content->id }}" method="post">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
-                                                <button class="btn btn-danger"
+                                                <button class="btn btn-block btn-danger"
                                                     onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                         </td>

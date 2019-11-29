@@ -2,11 +2,11 @@
 
 
 @section('title')
-Category | KMS
+Role | KMS
 @endsection
 
 @section('pagename')
-Categories
+Roles
 @endsection
 
 @section('content')
