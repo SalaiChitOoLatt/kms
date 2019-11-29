@@ -69,6 +69,12 @@ class ContentController extends Controller
         return redirect('/usercontent')->with('status', 'Content has been updated successfully.');
     }
 
+    public function getdetails(Request $request,$id)
+    {
+        $contents = Content::findOrFail($id);
+        return view('content.details')->with('contents', $contents);
+    }
+
     public function destroy($id)
     {
         $contents = Content::findOrFail($id);
@@ -77,6 +83,7 @@ class ContentController extends Controller
         return redirect('/usercontent')->with('status', 'Content has been deleted successfully.');
     }
     
+
     public function contentdownload()
     {
         $contents = Content::get(); // All contents

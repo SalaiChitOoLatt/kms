@@ -57,13 +57,7 @@ Contents
                                     <th>
                                         Time
                                     </th>
-                                    <th>
-                                        Created Date
-                                    </th>
-                                    <th>
-                                        Last Updated
-                                    </th>
-                                    <th colspan="2">
+                                    <th colspan="3">
                                         Action
                                     </th>
                                 </thead>
@@ -85,15 +79,13 @@ Contents
                                         <td>
                                             {{ $content->time }}
                                         </td>
-                                        <td>
-                                            {{ $content->created_at }}
-                                        </td>
-                                        <td>
-                                            {{ $content->updated_at }}
-                                        </td>
                                         <td class="text-right">
                                             <a href="/usercontentedit/{{ $content->id }}"
                                                 class="btn btn-primary">Edit</a>
+                                        </td>
+                                        <td class="text-right">
+                                            <a href="/usercontentdetails/{{ $content->id }}"
+                                                class="btn btn-info">Details</a>
                                         </td>
                                         <td>
                                             <form action="/usercontentdelete/{{ $content->id }}" method="post">

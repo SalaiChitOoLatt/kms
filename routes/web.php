@@ -40,6 +40,7 @@ Route::delete('/roledelete/{id}', 'RoleController@destroy');
 
 Route::get('/usercontentedit/{content_id}', 'Content\ContentController@edit');
 Route::put( '/usercontentedit/{content_id}', 'Content\ContentController@update');
+Route::get( '/usercontentdetails/{content_id}', 'Content\ContentController@getdetails');
 Route::delete('/usercontentdelete/{content_id}', 'Content\ContentController@destroy');
 
 Route::prefix('category')->group(function() {
