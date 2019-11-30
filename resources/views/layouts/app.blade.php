@@ -59,6 +59,9 @@
                                 <a class="dropdown-item" href="/userchangepassword">
                                     {{ __('Change Password') }}
                                 </a>
+                                <a class="dropdown-item" href="/getuserinfo/{{ Auth::user()->id }}">
+                                    {{ __('User Information') }}
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

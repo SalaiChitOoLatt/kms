@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -46,6 +47,13 @@ class HomeController extends Controller
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
+    }
+
+    public function getUserInfo(Request $request, $id) {
+
+        $users = User::findOrFail($id);
+        return view('user.userinfo')->with('users', $users);
+
     }
 
 }
