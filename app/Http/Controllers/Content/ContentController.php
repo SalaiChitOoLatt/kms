@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Content;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Content;
+use App\Category;
 
 class ContentController extends Controller
 {
@@ -21,14 +22,16 @@ class ContentController extends Controller
     public function index()
     {
         $contents= Content::all();
+        $categories = Category::all();
         // return view('admin.content.index')->with('contents', $contents);
-        return view('content.index')->with('contents', $contents);
+        return view('content.index')->with(compact('contents', 'categories'));
     }
 
 
     public function create()
     {
-        return view('content.create');
+        $categories = Category::all();
+        return view('content.create')->with('categories', $categories);
     }
 
     public function store(Request $request)
@@ -54,7 +57,8 @@ class ContentController extends Controller
     public function edit(Request $request, $id)
     {
         $contents = Content::findOrFail($id);
-        return view('content.edit')->with('contents', $contents);
+        $categories = Category::all();
+        return view('content.edit')->with(compact('contents', 'categories'));
     }
 
     public function update(Request $request, $id)

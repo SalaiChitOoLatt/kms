@@ -55,6 +55,16 @@ Content | KMS
                                     </tr>
                                     <tr>
                                         <th>
+                                            Category
+                                        </th>
+
+                                        <td>
+                                            Category
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>
                                             Date
                                         </th>
                                         <td>

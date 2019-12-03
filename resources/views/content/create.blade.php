@@ -41,6 +41,18 @@ Create Content
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="category" class="col-md-4 col-form-label text-md-right">{{_('Category') }}</label>
+                            <div class="col-md-6">
+                                <select name="category" class="form-control" id="category">
+
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id}}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <!--Date picker -->
                         <div class="form-group row ">
                             <label for="date" class="control-label col-md-4 col-form-label text-md-right"
