@@ -50,14 +50,12 @@ Create New User
                         </div>
 
                         <div class="form-group row">
-                            <label for="usertype" class="col-md-4 col-form-label text-md-right">User Type</label>
+                            <label for="role" class="col-md-4 col-form-label text-md-right">User Role</label>
                             <div class="col-md-6">
-                                <select name="usertype" class="form-control" id="usertype">
-                                    <option value="Normal User">Normal User</option>
-                                    <option value="Accountant">Accountant</option>
-                                    <option value="System Administrator">SysAdmin</option>
-                                    <option value="HR Manager">HR Manager</option>
-                                    <option value="BD Manager">Business Development Manager</option>
+                                <select name="role" class="form-control" id="role">
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->role_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

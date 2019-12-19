@@ -26,4 +26,9 @@ class Role extends Model
     // protected $hidden = [
     //     'remember_token',
     // ];
+
+    public function users()
+    {
+        return $this->hasMany('App\User');
+    }
 }

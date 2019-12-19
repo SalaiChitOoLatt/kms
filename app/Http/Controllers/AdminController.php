@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Category;
+use App\Role;
 
 class AdminController extends Controller
 {
@@ -40,14 +41,15 @@ class AdminController extends Controller
     public function useredit(Request $request, $id)
     {
         $users = User::findOrFail($id);
-        return view('admin.user-edit')->with('users', $users);
+        $roles = Role::all();
+        return view('admin.user-edit')->with(compact('users', 'roles'));
     }
 
     public function userupdate(Request $request, $id)
     {
         $users = User::find($id);
         $users->name = $request->input('username');
-        $users->usertype = $request->input('usertype');
+        $users->role()->associate($request['role']);
         $users->update();
 
         return redirect('/admin/users')->with('status', 'User has been updated successfully.');
@@ -64,7 +66,8 @@ class AdminController extends Controller
 
     public function showUserCreateForm()
     {
-        return view('admin.create-user');
+        $roles = Role::all();
+        return view('admin.create-user')->with('roles', $roles);
     }
 
     public function createUser(Request $request)
@@ -76,19 +79,27 @@ class AdminController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $user= User::insert([
+        // $user= User::insert([
 
-            'name' => $request->input('name'),
+        //     'name' => $request->input('name'),
 
-            'phone' => $request->input('phone'),
+        //     'phone' => $request->input('phone'),
 
-            'email' => $request->input('email'),
+        //     'email' => $request->input('email'),
             
-            'usertype' => $request->input('usertype'),
+        //     'usertype' => $request->input('usertype'),
 
-            'password' => Hash::make($request->input('password')),
+        //     'password' => Hash::make($request->input('password')),
             
-            ]);
+        //     ]);
+
+            $user= new User();
+            $user->name = $request['name'];
+            $user->phone = $request['phone'];
+            $user->email = $request['email'];
+            $user->role()->associate($request['role']);
+            $user->password = Hash::make($request['password']);
+            $user->save();
         return redirect('/admin/users')->with('status', 'A New User has been created successfully.');
     }
 

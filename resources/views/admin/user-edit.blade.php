@@ -25,13 +25,11 @@ USER LIST
                                 id="username">
                         </div>
                         <div class="form-group">
-                            <label for="usertype">User Type</label>
-                            <select name="usertype" class="form-control" id="usertype">
-                                <option value="Normal User">Normal User</option>
-                                <option value="Accountant">Accountant</option>
-                                <option value="System Administrator">SysAdmin</option>
-                                <option value="HR Manager">HR Manager</option>
-                                <option value="BD Manager">Business Development Manager</option>
+                            <label for="role">User Role</label>
+                            <select name="role" class="form-control" id="role">
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id}}">{{ $role->role_name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>

@@ -46,7 +46,7 @@ USER LIST
                                 Email
                             </th>
                             <th>
-                                User Type
+                                Role
                             </th>
                             <th colspan="2">
                                 Action
@@ -65,7 +65,7 @@ USER LIST
                                     {{ $user->email }}
                                 </td>
                                 <td>
-                                    {{ $user->usertype }}
+                                    {{ $user->role->role_name }}
                                 </td>
                                 <td class="text-right">
                                     <a href="/useredit/{{ $user->id }}" class="btn btn-primary">Edit</a>
