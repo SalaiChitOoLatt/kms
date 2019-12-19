@@ -29,16 +29,29 @@ Content | KMS
                                     {{ $contents->description }}
                                 </textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label for="category">{{_('Category') }}</label>
+                                <select name="category" class="form-control" id="category">
+
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id}}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
                             <div class="form-group">
                                 <label for="date">Select Date</label>
-                                <input type="date" class="form-control" name="date" id="datepicker"  value="{{ $contents->date }}" required>
+                                <input type="date" class="form-control" name="date" id="datepicker"
+                                    value="{{ $contents->date }}" required>
                             </div>
 
                             <!--Time picker -->
                             <div class="form-group">
                                 <label for="timepicker">Select
                                     Time</label>
-                                <input type="time" name="time" class="form-control" id="timepicker" value="{{ $contents->time }}" required>
+                                <input type="time" name="time" class="form-control" id="timepicker"
+                                    value="{{ $contents->time }}" required>
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit</button>

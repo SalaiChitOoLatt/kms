@@ -71,7 +71,7 @@ Contents
                                             {{ $content->content_name }}
                                         </td>
                                         <td>
-                                            Category
+                                            {{ $content->category->category_name }}
                                         </td>
                                         <td>
                                             {{ $content->date }}

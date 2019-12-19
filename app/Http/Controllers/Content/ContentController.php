@@ -22,9 +22,8 @@ class ContentController extends Controller
     public function index()
     {
         $contents= Content::all();
-        $categories = Category::all();
         // return view('admin.content.index')->with('contents', $contents);
-        return view('content.index')->with(compact('contents', 'categories'));
+        return view('content.index')->with(compact('contents'));
     }
 
 
@@ -42,10 +41,11 @@ class ContentController extends Controller
             'date' => 'required',
             'time' => 'required'
             ]);         
-       
+
         $content= new Content();
         $content->content_name = $request['content_name'];
         $content->description = $request['description'];
+        $content->category()->associate($request['category']);
         $content->date = $request['date'];
         $content->time = $request['time'];
         $content->save();
@@ -66,6 +66,7 @@ class ContentController extends Controller
         $contents = Content::find($id);
         $contents->content_name = $request->input('content_name');
         $contents->description = $request->input('description');
+        $contents->category()->associate($request['category']);
         $contents->date = $request->input('date');
         $contents->time = $request->input('time');
         $contents->update();

@@ -19,7 +19,7 @@ class Content extends Model
     ];
 
     // The category that belong to the content.
-    public function categories()
+    public function category()
     {
         return $this->belongsTo('App\Category');
     }

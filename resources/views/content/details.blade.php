@@ -59,7 +59,7 @@ Content | KMS
                                         </th>
 
                                         <td>
-                                            Category
+                                            {{ $contents->category->category_name }}
                                         </td>
 
                                     </tr>
